@@ -1,9 +1,11 @@
 <?php
+
 $i = $_GET['url'];
 $dwnld_link = GetAllFiles($i);
 $dwnld_link = (array) $dwnld_link[0];
 $redirect = $dwnld_link['download_link'];
 $filesize = get_headers($redirect);
+
 $file = $redirect;
     if (ob_get_level()) {
         ob_end_clean();
@@ -33,6 +35,7 @@ exit;
       $this->download_link = $download_link;
     }
   }
+  
   function GetAllFiles($link, $folder = "")
   {
     global $base_url, $id;
@@ -70,16 +73,19 @@ exit;
     }
     return $cmfiles;
   }
+  
   function GetMainFolder($page)
   {
     if (preg_match('~"folder":\s+(\{.*?"id":\s+"[^"]+"\s+\})\s+}~s', $page, $match)) return json_decode($match[1], true);
     else return false;
   }
+  
   function GetBaseUrl($page)
   {
     if (preg_match('~"weblink_get":.*?"url":\s*"(https:[^"]+)~s', $page, $match)) return $match[1];
     else return false;
   }
+  
   function get($url)
   {
     $proxy = null;
@@ -90,6 +96,7 @@ exit;
     $body = @file_get_contents($url, NULL, $context);
     return $body;
   }
+  
   function pathcombine()
   {
     $result = "";
@@ -103,4 +110,5 @@ exit;
     }
     return $result;
   }
+  
 ?>
