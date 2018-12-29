@@ -7,4 +7,5 @@ Forked from [Geograph-us/Cloud-Mail.Ru-Downloader](https://github.com/Geograph-u
 
 ## Использование
 Загрузить файл downloader.php на хостинг. При обращении к скрипту добавлять в адрес url публичной ссылки с облака.
+
 Пример: https://mysite.com/downloader.php?url=https://cloud.mail.ru/public/51Yf/BqFncwABC
